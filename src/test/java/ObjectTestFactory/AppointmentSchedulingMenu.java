@@ -25,10 +25,10 @@ public class AppointmentSchedulingMenu {
     By Notes = By.className("textarea.form-control");
     By BtnSave = By.cssSelector("a[class='btn btn-primary pull-right']");
 
-    public Boolean DateDay(WebDriver driver) throws Exception {
+    public Boolean DateDay(WebDriver driver, String Day) throws Exception {
         Boolean result = false;
         try {
-            driver.findElement(this.HasDatePicker).sendKeys("10/01/2016");
+            driver.findElement(this.HasDatePicker).sendKeys(Day);
         } catch (Exception ex) {
             result = false;
         }
