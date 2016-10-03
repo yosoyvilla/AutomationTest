@@ -35,34 +35,34 @@ public class AppointmentSchedulingMenu {
         return result;
     }
 
-    public Boolean PatientID(WebDriver driver) throws Exception {
+    public Boolean PatientID(WebDriver driver, String PatientIdentification) throws Exception {
         Boolean result = false;
         try {
             Random rnd = new Random();
             String ID = String.valueOf(rnd.nextInt(999999999));
-            driver.findElement(this.PatientIdentification).sendKeys(ID);
+            driver.findElement(this.PatientIdentification).sendKeys(PatientIdentification);
         } catch (Exception ex) {
             result = false;
         }
         return result;
     }
 
-    public Boolean DoctorID(WebDriver driver) throws Exception {
+    public Boolean DoctorID(WebDriver driver, String DoctorIdentification) throws Exception {
         Boolean result = false;
         try {
             Random rnd = new Random();
             String ID = String.valueOf(rnd.nextInt(999999999));
-            driver.findElement(this.DoctorIdentification).sendKeys(ID);
+            driver.findElement(this.DoctorIdentification).sendKeys(DoctorIdentification);
         } catch (Exception ex) {
             result = false;
         }
         return result;
     }
 
-    public Boolean SchedulingNotes(WebDriver driver) throws Exception {
+    public Boolean SchedulingNotes(WebDriver driver, String SNotes) throws Exception {
         Boolean result = false;
         try {
-            driver.findElement(this.Notes).sendKeys("Automation Test");
+            driver.findElement(this.Notes).sendKeys(SNotes);
         } catch (Exception ex) {
             result = false;
         }

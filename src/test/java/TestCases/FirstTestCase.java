@@ -13,8 +13,12 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ObjectTestFactory.*;
+import cucumber.api.Scenario;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.After;
+import org.junit.Assert;
 
 /**
  *
@@ -27,7 +31,7 @@ public class FirstTestCase {
     InitialMenu IM = new InitialMenu();
     ExitTest ET = new ExitTest();
     AppointmentSchedulingMenu APS = new AppointmentSchedulingMenu();
-    
+
     @Given("^Run With \"([^\"]*)\"$")
     public void i_select_a_browser_as(String Browser) throws Exception {
         Browser = "Chrome";
@@ -53,7 +57,7 @@ public class FirstTestCase {
             System.err.println(ex.getMessage());
         }
     }
-    
+
     @When("^I go to \"([^\"]*)\"$")
     public void i_go_to(String URL) throws Exception {
         try {
@@ -72,8 +76,8 @@ public class FirstTestCase {
         }
     }
 
-    @When("^I enter \"([^\"]*)\" in date day box$")
-    public void DateDay(String DateDay) throws Exception {
+    @When("^I enter \"([^\"]*)\" in the date day box$")
+    public void i_enter_the_date_day(String DateDay) throws Exception {
         try {
             APS.DateDay(driver, DateDay);
         } catch (Exception ex) {
@@ -81,39 +85,47 @@ public class FirstTestCase {
         }
     }
 
-    public void PatientID(WebDriver driver) throws Exception {
+    @When("^I enter \"([^\"]*)\" in the patient identification box$")
+    public void i_enter_the_patient_id(String PatientIdentification) throws Exception {
         try {
-            APS.PatientID(driver);
+            APS.PatientID(driver, PatientIdentification);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
     }
 
-    public void DoctorID(WebDriver driver) throws Exception {
+    @When("^I enter \"([^\"]*)\" in the doctor identification box$")
+    public void i_enter_the_doctor_id(String DoctorIdentification) throws Exception {
         try {
-            APS.DoctorID(driver);
+            APS.DoctorID(driver, DoctorIdentification);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
     }
 
-    public void SchedulingNotes(WebDriver driver) throws Exception {
+    @When("^I enter \"([^\"]*)\" in the scheduling notes box$")
+    public void i_enter_the_scheduling_notes(String SNotes) throws Exception {
         try {
-            APS.SchedulingNotes(driver);
+            APS.SchedulingNotes(driver, SNotes);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
     }
 
-    public void SaveButton(WebDriver driver) throws Exception {
+    @Then("^I press the save button and should get \"([^\"]*)\"$")
+    public void i_press_the_save_button(WebDriver driver, String ContentResult) throws Exception {
         try {
             APS.SaveButton(driver);
+            Thread.sleep(3000L);
+            boolean boolresult = driver.getPageSource().contains(ContentResult);
+            Assert.assertTrue(boolresult);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
     }
 
-    public void EndTestRun(WebDriver driver) throws Exception {
+    @After
+    public void EndTestRun(Scenario scenario) throws Exception {
         try {
             ET.EndTest(driver);
         } catch (Exception ex) {
