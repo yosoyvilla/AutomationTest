@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
- * @author JOHANAYLUISA
+ * @author DVILLA
  */
 public class AppointmentSchedulingMenu {
 

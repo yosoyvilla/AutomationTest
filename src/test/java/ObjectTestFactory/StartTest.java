@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 
 /**
  *
- * @author JOHANAYLUISA
+ * @author DVILLA
  */
 public class StartTest {
     public Boolean GoToSite(WebDriver driver, String URL) throws Exception {
