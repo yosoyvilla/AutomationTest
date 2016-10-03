@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(format = {"SimpleHtmlReport:report/smokeTest.html"}, tags = {"@smokeTest"})
+@CucumberOptions(format = {"html:report/smokeTest.html"}, features="src/test/resources")
 public class RunTest {
 
 }

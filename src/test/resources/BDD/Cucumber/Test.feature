@@ -4,7 +4,7 @@ Feature: Test
 Scenario: First Test Case
 
 Given Run Whit "Chrome"
-When I go to "http://automatizacion.herokuapp.com/dvilla"
+When I go to "http://automatizacion.herokuapp.com/dvilla/"
 When I press the Appointment Scheduling button
 When I enter "12/12/2016" in the date day box
 When I enter "1112784253" in the patient identification box
