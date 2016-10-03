@@ -7,12 +7,11 @@ package TestCases;
 
 import cucumber.api.junit.Cucumber;
 import cucumber.api.CucumberOptions;
-import cucumber.api.java.*;
 import org.junit.runner.RunWith;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(format = {"html:report/smokeTest.html"}, features="src/test/resources")
+@CucumberOptions(plugin = {"pretty","html:report/smokeTest","json:report/cucumber.json"}, features="src/test/resources", glue = {"TestCases"}, dryRun = false, monochrome = true)
 public class RunTest {
 
 }

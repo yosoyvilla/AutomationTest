@@ -12,10 +12,10 @@ import org.openqa.selenium.WebDriver;
  * @author JOHANAYLUISA
  */
 public class StartTest {
-    public Boolean GoToSite(WebDriver driver) throws Exception {
+    public Boolean GoToSite(WebDriver driver, String URL) throws Exception {
         Boolean result = true;
         try {
-            driver.get("http://automatizacion.herokuapp.com/pperez/");
+            driver.get(URL);
         } catch (Exception ex) {
             result = false;
         }
